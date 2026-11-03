@@ -1,12 +1,12 @@
 <?php
 
-function sendResponse($status, $message, $data = null, $httpCode = 200)
+function sendResponse($success, $message, $data = null, $code = 200)
 {
-    http_response_code($httpCode);
+    http_response_code($code);
     header("Content-Type: application/json");
 
     echo json_encode([
-        "status" => $status,
+        "status" => $success,
         "message" => $message,
         "data" => $data
     ]);

@@ -97,7 +97,7 @@ switch ($method) {
         // Pastikan NIM belum digunakan mahasiswa lain
         $nimCheck = mysqli_query($koneksi, "SELECT id FROM mahasiswa WHERE nim = '" . mysqli_real_escape_string($koneksi, $nim) . "'");
         if (mysqli_num_rows($nimCheck) > 0) {
-            sendResponse(false, "nim sudah terdaftar", null, 400);
+            sendResponse(false, "nim sudah terdaftar", null, 409);
         }
 
         // Simpan data mahasiswa ke database
